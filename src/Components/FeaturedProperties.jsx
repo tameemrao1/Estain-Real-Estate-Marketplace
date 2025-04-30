@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, Bed, Bath, Building2 } from "lucide-react"
 import { motion } from "framer-motion"
+import { Link } from 'react-router-dom'
 
 const properties = [
   {
@@ -70,7 +71,7 @@ const FeaturedProperties = () => {
       <h3 className="text-xl font-semibold mb-2">{property.title}</h3>
       <p className="text-gray-400 text-sm mb-4">
         {property.description}
-        <button className="text-white ml-1 hover:underline">Read More</button>
+        <Link to={`/properties/${property.id}`} className="text-white ml-1 hover:underline">Read More</Link>
       </p>
       <div className="flex gap-4 mb-4">
         <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
@@ -96,7 +97,9 @@ const FeaturedProperties = () => {
           whileTap={{ scale: 0.98 }}
           className="w-full bg-[#7B3FE4] py-3 rounded-md hover:opacity-90 transition-all"
         >
-          View Property Details
+          <Link to={`/properties/${property.id}`} className="block w-full">
+            View Property Details
+          </Link>
         </motion.button>
       </div>
     </motion.div>
@@ -113,9 +116,9 @@ const FeaturedProperties = () => {
               homes and investments available through Estatein.
             </p>
           </div>
-          <button className="mt-4 md:mt-0 px-6 py-3 font-medium border border-[#242424] rounded-md text-center hover:bg-[#262626] transition-all text-white focus:outline-none">
+          <Link to="/properties" className="mt-4 md:mt-0 px-6 py-3 font-medium border border-[#242424] rounded-md text-center hover:bg-[#262626] transition-all text-white focus:outline-none">
             View All Properties
-          </button>
+          </Link>
         </div>
 
         {/* Desktop View */}

@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { Search, MapPin, Home, DollarSign, Maximize, Calendar, ChevronDown, X, Filter, Sparkles } from "lucide-react"
 import FeaturedProperties from "./FeaturedProperties"
+import { Link } from 'react-router-dom'
+
 const Properties = () => {
   const [isSearchFocused, setIsSearchFocused] = useState(false)
   const [searchValue, setSearchValue] = useState("")
@@ -132,10 +134,10 @@ const Properties = () => {
                   </button>
                 )}
               </div>
-              <button className="bg-[#A685FA] hover:bg-[#9672e8] text-white font-medium px-6 py-4 rounded-r-xl transition-all duration-300 flex items-center gap-2">
+              <Link to="/properties" className="bg-[#A685FA] hover:bg-[#9672e8] text-white font-medium px-6 py-4 rounded-r-xl transition-all duration-300 flex items-center gap-2">
                 <Search className="w-4 h-4" />
                 <span>Find Property</span>
-              </button>
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-2 p-4 border-t border-gray-800">
@@ -212,10 +214,10 @@ const Properties = () => {
             </span>
           </div>
 
-          <button className="flex items-center gap-2 text-[#A685FA] text-sm font-medium hover:text-[#9672e8] transition-colors">
+          <Link to="/properties" className="flex items-center gap-2 text-[#A685FA] text-sm font-medium hover:text-[#9672e8] transition-colors">
             <Sparkles className="w-4 h-4" />
             <span>Discover Featured Properties</span>
-          </button>
+          </Link>
         </motion.div>
       </div>
                 <FeaturedProperties />
